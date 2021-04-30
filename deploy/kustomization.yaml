@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+namePrefix: viswa-
+
+resources:
+- Deployment.yaml
+- Services.yaml
+
+images:
+- name: nginx
+  newTag: 1.20.0
+
+replicas:
+- count: 2
+  name: viswa-nginx-deployment
